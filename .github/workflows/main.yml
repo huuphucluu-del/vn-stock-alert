@@ -1,0 +1,25 @@
+name: Quét tín hiệu MA hàng ngày
+
+on:
+  schedule:
+    - cron: '0 9 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Cài Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Cài thư viện
+        run: pip install vnstock>=3.0.0 pandas requests -q
+      - name: Chạy quét tín hiệu
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scan.py
