@@ -13,7 +13,7 @@ TELEGRAM_TOKEN   = os.environ.get('TELEGRAM_TOKEN', '')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '')
 NGAY_BAT_DAU     = '2023-01-01'
 NGUONG_GAN_MA200 = 3.0   # ±3% quanh MA200
-DANH_SACH        = 'VN30' # VN30 hoặc VN100
+DANH_SACH        = 'VN100' # VN30 hoặc VN100
 
 VN30_LIST = [
     'VCB','BID','CTG','TCB','MBB','VPB','ACB','HPG','GAS','VHM',
